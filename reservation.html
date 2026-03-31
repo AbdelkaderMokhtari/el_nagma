@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EL NAJMA — Réservation</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/reservation.css">
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cursorRing" style="position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:difference;"><div class="cursor-ring-el"></div></div>
+<div id="cursorDot"  style="position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:difference;"><div class="cursor-dot-el"></div></div>
+
+<!-- OVERLAY -->
+<div class="menu-overlay" id="menuOverlay">
+  <button class="menu-overlay-close" onclick="closeNav()"><i class="fa-solid fa-xmark"></i><span data-i18n="close">Fermer</span></button>
+  <div class="overlay-lang-wrap">
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="fr" onclick="setLang('fr')"><span class="lang-label">FR</span></button>
+      <button class="lang-btn" data-lang="ar" onclick="setLang('ar')"><span class="lang-label">AR</span></button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')"><span class="lang-label">EN</span></button>
+    </div>
+  </div>
+  <div class="menu-overlay-divider"></div>
+  <ul class="menu-overlay-links">
+    <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+    <li><a href="menu.html" data-i18n="nav_menu">Menu</a></li>
+    <li><a href="about.html" data-i18n="nav_about">À Propos</a></li>
+    <li><a href="reservation.html" data-i18n="nav_reservation">Réservation</a></li>
+  </ul>
+  <div class="menu-overlay-divider"></div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">ELNAJMA</a>
+  <div class="nav-center">
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+      <li><a href="menu.html" data-i18n="nav_menu">Menu</a></li>
+      <li><a href="about.html" data-i18n="nav_about">À Propos</a></li>
+      <li><a href="reservation.html" class="active" data-i18n="nav_reservation">Réservation</a></li>
+    </ul>
+  </div>
+  <div class="nav-right">
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="fr" onclick="setLang('fr')"><span class="lang-label">FR</span></button>
+      <button class="lang-btn" data-lang="ar" onclick="setLang('ar')"><span class="lang-label">AR</span></button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')"><span class="lang-label">EN</span></button>
+    </div>
+    <a href="reservation.html" class="nav-cta" data-i18n="nav_book">Réserver</a>
+    <button class="nav-burger" onclick="openNav()"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+  </div>
+</nav>
+
+<!-- ==========================================
+     RESERVATION — Contact Only
+========================================== -->
+<div class="res-wrap">
+
+  <!-- LEFT: image -->
+  <div class="res-left">
+    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=85" alt="Book a table">
+    <div class="res-left-title" data-i18n-html="res_left_title">BOOK<br>A TABLE</div>
+    <div class="res-left-info">
+      <div class="res-left-info-item">
+        <i class="fa-solid fa-location-dot"></i>
+        <span data-i18n-html="info_addr_val">Rue des Martyrs<br>Alger Centre</span>
+      </div>
+      <div class="res-left-info-item">
+        <i class="fa-solid fa-clock"></i>
+        <span data-i18n-html="info_hours_val">Lun–Ven : 11h–00h<br>Sam–Dim : 11h–02h</span>
+      </div>
+      <div class="res-left-info-item">
+        <i class="fa-brands fa-whatsapp" style="color:#25D366"></i>
+        <span>0555 XX XX XX</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: contact -->
+  <div class="res-right">
+
+    <div class="res-form-head">
+      <div class="menu-diamond"></div>
+      <span class="res-form-title" data-i18n="nav_reservation">Réservation</span>
+      <div class="menu-diamond"></div>
+    </div>
+
+    <p class="res-subtitle" data-i18n="res_subtitle">Contactez-nous pour réserver votre table.</p>
+
+    <!-- CONTACT CARDS -->
+    <div class="contact-cards">
+
+      <!-- Phone -->
+      <a href="tel:+213555000000" class="contact-card">
+        <div class="contact-card-icon">
+          <i class="fa-solid fa-phone"></i>
+        </div>
+        <div class="contact-card-body">
+          <div class="contact-card-label" data-i18n="info_phone">Téléphone</div>
+          <div class="contact-card-val">0555 XX XX XX</div>
+          <div class="contact-card-hint" data-i18n="call_hint">Appuyez pour appeler</div>
+        </div>
+        <i class="fa-solid fa-arrow-right contact-card-arrow"></i>
+      </a>
+
+      <!-- WhatsApp -->
+      <a href="https://wa.me/213XXXXXXXXX" target="_blank" class="contact-card contact-card--wa">
+        <div class="contact-card-icon">
+          <i class="fa-brands fa-whatsapp"></i>
+        </div>
+        <div class="contact-card-body">
+          <div class="contact-card-label">WhatsApp</div>
+          <div class="contact-card-val">0555 XX XX XX</div>
+          <div class="contact-card-hint" data-i18n="wa_hint">Réservation rapide par message</div>
+        </div>
+        <i class="fa-solid fa-arrow-right contact-card-arrow"></i>
+      </a>
+
+    </div>
+
+    <!-- Info grid -->
+    <div class="res-info-grid">
+      <div class="res-info-item">
+        <div class="res-info-label"><i class="fa-solid fa-location-dot"></i><span data-i18n="info_addr">Adresse</span></div>
+        <div class="res-info-val" data-i18n-html="info_addr_val">Rue des Martyrs<br>Alger Centre</div>
+      </div>
+      <div class="res-info-item">
+        <div class="res-info-label"><i class="fa-regular fa-clock"></i><span data-i18n="info_hours">Horaires</span></div>
+        <div class="res-info-val" data-i18n-html="info_hours_val">Lun–Ven : 11h–00h<br>Sam–Dim : 11h–02h</div>
+      </div>
+      <div class="res-info-item">
+        <div class="res-info-label"><i class="fa-solid fa-square-parking"></i><span data-i18n="info_parking">Parking</span></div>
+        <div class="res-info-val" data-i18n="info_parking_val">Gratuit à 100m</div>
+      </div>
+      <div class="res-info-item">
+        <div class="res-info-label"><i class="fa-solid fa-circle-info"></i><span data-i18n="info_confirm">Confirmation</span></div>
+        <div class="res-info-val" data-i18n="info_confirm_val">Sous 30 minutes</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="js/i18n.js"></script>
+<script src="js/nav.js"></script>
+</body>
+</html>

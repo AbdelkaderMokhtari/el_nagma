@@ -1,0 +1,138 @@
+/* ================================================
+   SAVORIA — Reservation Page Styles
+================================================ */
+.res-wrap {
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 100vh; overflow: hidden;
+}
+body.ar .res-wrap { direction: rtl; }
+
+/* LEFT */
+.res-left { position: relative; overflow: hidden; }
+.res-left img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.55); }
+.res-left::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(12,11,10,.1) 0%, rgba(12,11,10,.7) 100%);
+}
+body.ar .res-left::after { background: linear-gradient(to left, rgba(12,11,10,.1) 0%, rgba(12,11,10,.7) 100%); }
+
+.res-left-title {
+  position: absolute; bottom: 180px; left: 50px;
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5.5vw, 5rem); font-weight: 300;
+  text-transform: uppercase; letter-spacing: 2px; color: var(--cream); line-height: .9;
+  z-index: 2;
+}
+body.ar .res-left-title { left: auto; right: 50px; font-family: var(--font-ar); letter-spacing: 0; line-height: 1.2; }
+
+.res-left-info {
+  position: absolute; bottom: 48px; left: 50px; right: 50px;
+  display: flex; flex-direction: column; gap: 12px;
+  z-index: 2;
+}
+body.ar .res-left-info { left: 50px; right: 50px; align-items: flex-end; }
+.res-left-info-item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: .8rem; font-weight: 300; color: rgba(232,223,200,.8); line-height: 1.5;
+}
+body.ar .res-left-info-item { flex-direction: row-reverse; }
+.res-left-info-item i { color: var(--gold); font-size: .9rem; flex-shrink: 0; }
+
+/* RIGHT */
+.res-right {
+  background: var(--bg2); padding: 100px 64px 60px;
+  display: flex; flex-direction: column; overflow-y: auto;
+}
+.res-form-head { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
+.res-form-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 300;
+  text-transform: uppercase; letter-spacing: 4px; color: var(--cream);
+}
+body.ar .res-form-title { font-family: var(--font-ar); letter-spacing: 0; }
+.res-subtitle { font-size: .83rem; font-weight: 300; color: var(--gray); line-height: 1.7; margin-bottom: 40px; max-width: 400px; }
+
+/* Form */
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.form-row.single { grid-template-columns: 1fr; }
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-label {
+  display: flex; align-items: center; gap: 7px;
+  font-size: .62rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gray);
+}
+body.ar .form-label { letter-spacing: 0; flex-direction: row-reverse; }
+.form-label i { color: var(--gold-dim); font-size: .75rem; }
+.form-input {
+  background: transparent; border: 1px solid var(--border); color: var(--cream);
+  padding: 13px 16px; font-size: .88rem; font-weight: 300; outline: none;
+  transition: border-color .3s; border-radius: 0; -webkit-appearance: none;
+}
+.form-input:focus { border-color: var(--gold); }
+.form-input::placeholder { color: rgba(232,223,200,.22); }
+body.ar .form-input { text-align: right; direction: rtl; }
+.form-select {
+  background: transparent; border: 1px solid var(--border); color: var(--cream);
+  padding: 13px 40px 13px 16px; font-size: .88rem; font-weight: 300; outline: none;
+  transition: border-color .3s; border-radius: 0; -webkit-appearance: none; appearance: none;
+  cursor: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(232,223,200,0.35)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 14px center;
+}
+body.ar .form-select { padding: 13px 16px 13px 40px; background-position: left 14px center; direction: rtl; }
+.form-select:focus { border-color: var(--gold); }
+.form-select option { background: #1a1812; }
+
+.res-submit {
+  margin-top: 28px; align-self: flex-start;
+  display: inline-flex; align-items: center; gap: 10px;
+  background: #25D366; color: #fff;
+  font-size: .72rem; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase;
+  padding: 16px 36px; cursor: none;
+  transition: background .3s; border: none;
+}
+body.ar .res-submit { letter-spacing: 0; align-self: flex-end; }
+.res-submit:hover { background: #1ebe5c; }
+.res-submit i { font-size: 1.1rem; }
+.res-note {
+  margin-top: 14px; font-size: .72rem; font-weight: 300; color: var(--gray);
+  line-height: 1.6; display: flex; align-items: flex-start; gap: 7px;
+}
+body.ar .res-note { flex-direction: row-reverse; }
+.res-note i { color: var(--gold-dim); margin-top: 2px; flex-shrink: 0; }
+
+/* Success */
+.res-success {
+  display: none; flex-direction: column; align-items: center;
+  justify-content: center; text-align: center; padding: 48px 32px;
+}
+.res-success-icon { font-size: 3.5rem; color: #25D366; margin-bottom: 20px; }
+.res-success-title {
+  font-family: var(--font-display); font-size: 1.9rem; font-weight: 300;
+  text-transform: uppercase; letter-spacing: 3px; color: var(--cream); margin-bottom: 12px;
+}
+body.ar .res-success-title { font-family: var(--font-ar); letter-spacing: 0; }
+.res-success-text { font-size: .85rem; font-weight: 300; color: var(--gray); line-height: 1.7; }
+
+/* Info grid */
+.res-info-grid {
+  margin-top: 40px; padding-top: 36px; border-top: 1px solid var(--border);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+}
+.res-info-label {
+  display: flex; align-items: center; gap: 7px;
+  font-size: .6rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px;
+}
+body.ar .res-info-label { letter-spacing: 0; flex-direction: row-reverse; }
+.res-info-val { font-size: .85rem; font-weight: 300; color: var(--cream); line-height: 1.7; }
+body.ar .res-info-val { text-align: right; }
+
+@media(max-width:1024px) {
+  .res-wrap { grid-template-columns: 1fr; }
+  .res-left { display: none; }
+  .res-right { padding: 100px 40px 60px; }
+}
+@media(max-width:768px) {
+  .res-right { padding: 90px 20px 48px; }
+  .form-row { grid-template-columns: 1fr; }
+  .res-info-grid { grid-template-columns: 1fr; }
+}

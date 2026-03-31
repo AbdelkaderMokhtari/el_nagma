@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ELNAJMA — Menu</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/menu.css">
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cursorRing" style="position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:difference;"><div class="cursor-ring-el"></div></div>
+<div id="cursorDot"  style="position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:difference;"><div class="cursor-dot-el"></div></div>
+
+<!-- MENU OVERLAY -->
+<div class="menu-overlay" id="menuOverlay">
+  <button class="menu-overlay-close" onclick="closeNav()"><i class="fa-solid fa-xmark"></i><span data-i18n="close">Fermer</span></button>
+  <div class="overlay-lang-wrap">
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="fr" onclick="setLang('fr')"><i class="fa-solid fa-globe"></i><span class="lang-label">FR</span></button>
+      <button class="lang-btn" data-lang="ar" onclick="setLang('ar')"><span class="lang-label">AR</span></button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')"><span class="lang-label">EN</span></button>
+    </div>
+  </div>
+  <div class="menu-overlay-divider"></div>
+  <ul class="menu-overlay-links">
+    <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+    <li><a href="menu.html"  data-i18n="nav_menu">Menu</a></li>
+    <li><a href="about.html" data-i18n="nav_about">À Propos</a></li>
+    <li><a href="reservation.html" data-i18n="nav_reservation">Réservation</a></li>
+  </ul>
+  <div class="menu-overlay-divider"></div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">ELNAJMA</a>
+  <div class="nav-center">
+    <ul class="nav-links">
+      <li><a href="index.html" data-page="home" data-i18n="nav_home">Accueil</a></li>
+      <li><a href="menu.html"  data-page="menu" class="active" data-i18n="nav_menu">Menu</a></li>
+      <li><a href="about.html" data-page="about" data-i18n="nav_about">À Propos</a></li>
+      <li><a href="reservation.html" data-page="reservation" data-i18n="nav_reservation">Réservation</a></li>
+    </ul>
+  </div>
+  <div class="nav-right">
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="fr" onclick="setLang('fr')"><i class="fa-solid fa-globe"></i><span class="lang-label">FR</span></button>
+      <button class="lang-btn" data-lang="ar" onclick="setLang('ar')"><span class="lang-label">AR</span></button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')"><span class="lang-label">EN</span></button>
+    </div>
+    <a href="reservation.html" class="nav-cta" data-i18n="nav_book">Réserver</a>
+    <button class="nav-burger" onclick="openNav()"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+  </div>
+</nav>
+
+<!-- ==========================================
+     MENU HERO
+========================================== -->
+<section class="menu-hero">
+  <div class="menu-hero-left">
+    <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=1000&q=85" alt="Menu">
+    <div class="menu-hero-title-overlay" data-i18n="nav_menu">Menu</div>
+  </div>
+  <div class="menu-hero-right">
+    <div class="menu-hero-content">
+      <div class="section-label" style="margin-bottom:16px;"><span data-i18n="menu_label">Notre Carte</span></div>
+      <p class="menu-hero-desc" data-i18n="menu_desc">Une sélection soigneuse de plats...</p>
+      <a href="reservation.html" class="btn-gold">
+        <i class="fa-regular fa-calendar-check"></i>
+        <span data-i18n="nav_book">Réserver</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     CATEGORY TABS
+========================================== -->
+<div class="menu-cats" id="menuCats">
+  <button class="menu-cat-btn active" data-cat="burgers" onclick="showCat('burgers',this)">
+    <i class="fa-solid fa-burger"></i><span data-i18n="cat_burgers">Burgers</span>
+  </button>
+  <button class="menu-cat-btn" data-cat="pizzas" onclick="showCat('pizzas',this)">
+    <i class="fa-solid fa-pizza-slice"></i><span data-i18n="cat_pizzas">Pizzas</span>
+  </button>
+  <button class="menu-cat-btn" data-cat="sandwiches" onclick="showCat('sandwiches',this)">
+    <i class="fa-solid fa-sandwich"></i><span data-i18n="cat_sand">Sandwiches</span>
+  </button>
+  <button class="menu-cat-btn" data-cat="poulet" onclick="showCat('poulet',this)">
+    <i class="fa-solid fa-drumstick-bite"></i><span data-i18n="cat_chicken">Poulet</span>
+  </button>
+  <button class="menu-cat-btn" data-cat="drinks" onclick="showCat('drinks',this)">
+    <i class="fa-solid fa-glass-water"></i><span data-i18n="cat_drinks">Boissons</span>
+  </button>
+  <button class="menu-cat-btn" data-cat="desserts" onclick="showCat('desserts',this)">
+    <i class="fa-solid fa-ice-cream"></i><span data-i18n="cat_desserts">Desserts</span>
+  </button>
+</div>
+
+<!-- ==========================================
+     BURGERS
+========================================== -->
+<div class="menu-section menu-group active" id="group-burgers">
+  <div class="menu-sec-title">
+    <div class="menu-diamond"></div>
+    <span class="menu-sec-title-text" data-i18n="cat_burgers">Burgers</span>
+    <div class="menu-sec-line"></div>
+    <div class="menu-diamond"></div>
+  </div>
+  <div class="menu-grid">
+    <div class="menu-card">
+      <img class="menu-card-img" src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=300&q=80" alt="Classic Burger">
+      <div class="menu-card-body">
+        <div class="menu-card-row">
+          <span class="menu-card-name" data-i18n="b1_name">Classic Burger</span>
+          <div class="menu-card-dots"></div>
+          <span class="menu-card-price">590 DZD</span>
+        </div>
+        <p class="menu-card-desc" data-i18n="b1_desc">Bœuf haché 180g, cheddar fondu, salade, tomate, oignon caramélisé.</p>
+        <span class="menu-card-badge badge-gold"><i class="fa-solid fa-star"></i><span data-i18n="badge_best">Best Seller</span></span>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="https://images.unsplash.com/photo-1586816001966-79b736744398?w=300&q=80" alt="Double Smash">
+      <div class="menu-card-body">
+        <div class="menu-card-row">
+          <span class="menu-card-name" data-i18n="b2_name">Double Smash</span>
+          <div class="menu-card-dots"></div>
+          <span class="menu-card-price">890 DZD</span>
+        </div>
+        <p class="menu-card-desc" data-i18n="b2_desc">Double galette smashée, double cheddar, cornichons, sauce fumée.</p>
+        <span class="menu-card-badge badge-red"><i class="fa-solid fa-fire"></i><span data-i18n="badge_new">Nouveau</span></span>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=300&q=80" alt="Crispy Chicken Burger">
+      <div class="menu-card-body">
+        <div class="menu-card-row">
+          <span class="menu-card-name" data-i18n="b3_name">Crispy Chicken</span>
+          <div class="menu-card-dots"></div>
+          <span class="menu-card-price">680 DZD</span>
+        </div>
+        <p class="menu-card-desc" data-i18n="b3_desc">Filet de poulet croustillant, coleslaw maison, pickles, sauce ranch.</p>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="https://images.unsplash.com/photo-1548340748-6d2b7d7da280?w=300&q=80" alt="BBQ Smoky">
+      <div class="menu-card-body">
+        <div class="menu-card-row">
+          <span class="menu-card-name" data-i18n="b4_name">BBQ Smoky</span>
+          <div class="menu-card-dots"></div>
+          <span class="menu-card-price">750 DZD</span>
+        </div>
+        <p class="menu-card-desc" data-i18n="b4_desc">Bœuf grillé, bacon fumé, oignons frits, sauce BBQ artisanale.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PIZZAS -->
+<div class="menu-section menu-group" id="group-pizzas">
+  <div class="menu-sec-title"><div class="menu-diamond"></div><span class="menu-sec-title-text" data-i18n="cat_pizzas">Pizzas</span><div class="menu-sec-line"></div><div class="menu-diamond"></div></div>
+  <div class="menu-grid">
+    <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=300&q=80" alt="Margherita"><div class="menu-card-body"><div class="menu-card-row"><span class="menu-card-name" data-i18n="p1_name">Margherita</span><div class="menu-card-dots"></div><span class="menu-card-price">750 DZD</span></div><p class="menu-card-desc" data-i18n="p1_desc">Sauce tomate San Marzano, mozzarella fior di latte, basilic frais.</p><span class="menu-card-badge badge-green"><i class="fa-solid fa-leaf"></i><span data-i18n="badge_veg">Végétarien</span></span></div></div>
+    <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=300&q=80" alt="4 Fromages"><div class="menu-card-body"><div class="menu-card-row"><span class="menu-card-name" data-i18n="p2_name">4 Fromages</span><div class="menu-card-dots"></div><span class="menu-card-price">950 DZD</span></div><p class="menu-card-desc" data-i18n="p2_desc">Mozzarella, gouda, cheddar, ricotta, crème fraîche, poivre noir.</p><span class="menu-card-badge badge-gold"><i class="fa-solid fa-star"></i><span data-i18n="badge_pop">Populaire</span></span></div></div>
+    <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=300&q=80" alt="Pepperoni"><div class="menu-card-body"><div class="menu-card-row"><span class="menu-card-name" data-i18n="p3_name">Pepperoni</span><div class="menu-card-dots"></div><span class="menu-card-price">900 DZD</span></div><p class="menu-card-desc" data-i18n="p3_desc">Double couche de pepperoni, mozzarella filante, sauce épicée.</p></div></div>
+    <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=300&q=80" alt="BBQ Chicken Pizza"><div class="menu-card-body"><div class="menu-card-row"><span class="menu-card-name" data-i18n="p4_name">BBQ Chicken</span><div class="menu-card-dots"></div><span class="menu-card-price">1 050 DZD</span></div><p class="menu-card-desc" data-i18n="p4_desc">Poulet grillé, sauce BBQ, oignons rouges, maïs, cheddar.</p><span class="menu-card-badge badge-red"><i class="fa-solid fa-fire"></i><span data-i18n="badge_new">Nouveau</span></span></div></div>
+  </div>
+</div>
+
+<!-- SANDWICHES -->
+<div class="menu-section menu-group" id="group-sandwiches">
+  <div class="menu-sec-title"><div class="menu-diamond"></div><span class="menu-sec-title-text" data-i18n="cat_sand">Sandwiches</span><div class="menu-sec-line"></div><div class="menu-diamond"></div></div>
+  <div class="menu-grid">
+    <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=300&q=80" alt="Club Sandwich"><div class="menu-card-body"><div class="menu-card-row"><span class="menu-card-name" data-i18n="s1_name">Club Sandwich</span><div class="menu-card-dots"></div><span class="menu-card-price">520 DZD</span></div><p class="menu-card-desc" data-i18n="s1_desc">Triple étage, poulet, bacon, œuf, salade, tomate, mayo au citron.</p><span class="menu-card-badge badge-gold"><i class="fa-solid fa-star"></i><span data-i18n="badge_classic">Classique</span></span></div></div>
+    <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1639024471283-03518883512d?w=300&q=80" alt="Panini"><div class="menu-card-body"><div class="menu-card-row"><span class="menu-card-name" data-i18n="s2_name">Panini Grillé</span><div class="menu-card-dots"></div><span class="menu-card-price">450 DZD</span></div><p class="menu-card-desc" data-i18n="s2_desc">Pain ciabatta grillé, mozza, jambon, tomate séchée, basilic, pesto.</p></div></div>
+    <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1604909052743-94e838986d24?w=300&q=80" alt="Wrap Fajita"><div class="menu-card-body"><div class="menu-card-row"><span class="menu-card-name" data-i18n="s3_name">Wrap Fajita</span><div class="menu-card-dots"></div><span class="menu-card-price">480 DZD</span></div><p class="menu-card-desc" data-i18n="s3_desc">Tortilla grillée, poulet épicé, poivrons, oignons, sour cream.</p><span class="menu-card-badge badge-red"><i class="fa-solid fa-pepper-hot"></i><span data-i18n="badge_spicy">Épicé</span></span></div></div>
+    <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1567234669003-dce7a7a88821?w=300&q=80" alt="Hot Dog"><div class="menu-card-body"><div class="menu-card-row"><span class="menu-card-name" data-i18n="s4_name">Hot Dog Gourmet</span><div class="menu-card-dots"></div><span class="menu-card-price">390 DZD</span></div><p class="menu-card-desc" data-i18n="s4_desc">Saucisse grillée, pain brioché, moutarde, ketchup, oignons confits.</p></div></div>
+  </div>
+</div>
+
+<!-- POULET -->
+<div class="menu-section menu-group" id="group-poulet">
+  <div class="menu-sec-title"><div class="menu-diamond"></div><span class="menu-sec-title-text" data-i18n="cat_chicken">Poulet</span><div class="menu-sec-line"></div><div class="menu-diamond"></div></div>
+  <div class="menu-grid">
+    <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1562967914-608f82629710?w=300&q=80" alt="Poulet Grillé"><div class="menu-card-body"><div class="menu-card-row"><span class="menu-card-name" data-i18n="c1_name">Poulet Grillé</span><div class="menu-card-dots"></div><span class="menu-card-price">780 DZD</span></div><p class="menu-card-desc" data-i18n="c1_desc">Demi-poulet mariné aux épices, grillé à la braise, frites et salade.</p><span class="menu-card-badge badge-gold"><i class="fa-solid fa-star"></i><span data-i18n="badge_house">Maison</span></span></div></div>
+    <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?w=300&q=80" alt="Wings"><div class="menu-card-body"><div class="menu-card-row"><span class="menu-card-name" data-i18n="c2_name">Wings Épicés</span><div class="menu-card-dots"></div><span class="menu-card-price">650 DZD</span></div><p class="menu-card-desc" data-i18n="c2_desc">10 ailes croustillantes, sauce buffalo ou miel-moutarde.</p><span class="menu-card-badge badge-red"><i class="fa-solid fa-fire"></i><span data-i18n="badge_crispy">Croustillant</span></span></div></div>
+    <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1527477396000-e27163b481c2?w=300&q=80" alt="Nuggets"><div class="menu-card-body"><div class="menu-card-row"><span class="menu-card-name" data-i18n="c3_name">Nuggets (12 pcs)</span><div class="menu-card-dots"></div><span class="menu-card-price">490 DZD</span></div><p class="menu-card-desc" data-i18n="c3_desc">Filet de poulet pané maison, sauce au choix.</p></div></div>
+    <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1585325701956-60dd9c8553bc?w=300&q=80" alt="Shawarma"><div class="menu-card-body"><div class="menu-card-row"><span class="menu-card-name" data-i18n="c4_name">Shawarma Poulet</span><div class="menu-card-dots"></div><span class="menu-card-price">420 DZD</span></div><p class="menu-card-desc" data-i18n="c4_desc">Galette croustillante, poulet mariné, sauce tahini et sauce blanche.</p></div></div>
+  </div>
+</div>
+
+<!-- DRINKS -->
+<div class="menu-section menu-group" id="group-drinks">
+  <div class="menu-sec-title"><div class="menu-diamond"></div><span class="menu-sec-title-text" data-i18n="cat_drinks">Boissons</span><div class="menu-sec-line"></div><div class="menu-diamond"></div></div>
+  <div class="menu-grid">
+    <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1568631928618-bde1a0a20c52?w=300&q=80" alt="Limonade"><div class="menu-card-body"><div class="menu-card-row"><span class="menu-card-name" data-i18n="d1_name">Limonade Fraîche</span><div class="menu-card-dots"></div><span class="menu-card-price">220 DZD</span></div><p class="menu-card-desc" data-i18n="d1_desc">Citron pressé, menthe, sucre de canne, eau pétillante ou plate.</p><span class="menu-card-badge badge-gold"><i class="fa-solid fa-star"></i><span data-i18n="badge_house">Maison</span></span></div></div>
+    <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=300&q=80" alt="Milkshake"><div class="menu-card-body"><div class="menu-card-row"><span class="menu-card-name" data-i18n="d2_name">Milkshake</span><div class="menu-card-dots"></div><span class="menu-card-price">350 DZD</span></div><p class="menu-card-desc" data-i18n="d2_desc">Fraise, vanille, chocolat ou caramel — épais et onctueux.</p></div></div>
+    <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1497534446932-c925b458314e?w=300&q=80" alt="Jus Frais"><div class="menu-card-body"><div class="menu-card-row"><span class="menu-card-name" data-i18n="d3_name">Jus Frais</span><div class="menu-card-dots"></div><span class="menu-card-price">280 DZD</span></div><p class="menu-card-desc" data-i18n="d3_desc">Orange, mangue, grenade — pressé à la minute, sans sucre ajouté.</p><span class="menu-card-badge badge-green"><i class="fa-solid fa-leaf"></i><span data-i18n="badge_natural">100% Naturel</span></span></div></div>
+    <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1561047029-3000c68339ca?w=300&q=80" alt="Sodas"><div class="menu-card-body"><div class="menu-card-row"><span class="menu-card-name" data-i18n="d4_name">Eau & Sodas</span><div class="menu-card-dots"></div><span class="menu-card-price">80 DZD</span></div><p class="menu-card-desc" data-i18n="d4_desc">Eau minérale, Coca-Cola, Pepsi, 7UP, Fanta, Sprite.</p></div></div>
+  </div>
+</div>
+
+<!-- DESSERTS -->
+<div class="menu-section menu-group" id="group-desserts">
+  <div class="menu-sec-title"><div class="menu-diamond"></div><span class="menu-sec-title-text" data-i18n="cat_desserts">Desserts</span><div class="menu-sec-line"></div><div class="menu-diamond"></div></div>
+  <div class="menu-grid">
+    <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1568051243851-f9b136146e97?w=300&q=80" alt="Cheesecake"><div class="menu-card-body"><div class="menu-card-row"><span class="menu-card-name" data-i18n="ds1_name">Cheesecake NY</span><div class="menu-card-dots"></div><span class="menu-card-price">390 DZD</span></div><p class="menu-card-desc" data-i18n="ds1_desc">Fromage frais, biscuit graham, coulis de fruits rouges.</p><span class="menu-card-badge badge-gold"><i class="fa-solid fa-crown"></i><span data-i18n="badge_sig">Signature</span></span></div></div>
+    <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=300&q=80" alt="Brownie"><div class="menu-card-body"><div class="menu-card-row"><span class="menu-card-name" data-i18n="ds2_name">Brownie Fondant</span><div class="menu-card-dots"></div><span class="menu-card-price">280 DZD</span></div><p class="menu-card-desc" data-i18n="ds2_desc">Chocolat noir 70%, noix de pécan, glace vanille, sauce caramel.</p></div></div>
+    <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1530610476181-d83430b64dcd?w=300&q=80" alt="Crêpes"><div class="menu-card-body"><div class="menu-card-row"><span class="menu-card-name" data-i18n="ds3_name">Crêpes Nutella</span><div class="menu-card-dots"></div><span class="menu-card-price">320 DZD</span></div><p class="menu-card-desc" data-i18n="ds3_desc">Crêpes fines, Nutella, banane, fraises fraîches, chantilly.</p></div></div>
+    <div class="menu-card"><img class="menu-card-img" src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&q=80" alt="Glace"><div class="menu-card-body"><div class="menu-card-row"><span class="menu-card-name" data-i18n="ds4_name">Coupe de Glaces</span><div class="menu-card-dots"></div><span class="menu-card-price">250 DZD</span></div><p class="menu-card-desc" data-i18n="ds4_desc">3 boules au choix, noisettes, chocolat chaud, chantilly.</p></div></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div><div class="footer-brand-name">EL NAJMA</div><p class="footer-brand-desc" data-i18n="footer_desc">L'art culinaire au service de votre plaisir.</p><div class="footer-social"><a href="#" class="footer-social-link"><i class="fa-brands fa-instagram"></i></a><a href="#" class="footer-social-link"><i class="fa-brands fa-facebook-f"></i></a><a href="#" class="footer-social-link"><i class="fa-brands fa-tiktok"></i></a></div></div>
+  <div><div class="footer-col-title" data-i18n="footer_nav">Navigation</div><ul class="footer-col-links"><li><a href="index.html" data-i18n="nav_home">Accueil</a></li><li><a href="menu.html" data-i18n="nav_menu">Menu</a></li><li><a href="about.html" data-i18n="nav_about">À Propos</a></li><li><a href="reservation.html" data-i18n="nav_reservation">Réservation</a></li></ul></div>
+  <div><div class="footer-col-title" data-i18n="footer_hours_title">Horaires</div><ul class="footer-col-links"><li><a href="#"><i class="fa-regular fa-clock" style="margin-right:6px;color:var(--gold)"></i><span data-i18n="footer_h1"></span></a></li><li><a href="#"><i class="fa-regular fa-clock" style="margin-right:6px;color:var(--gold)"></i><span data-i18n="footer_h2"></span></a></li></ul></div>
+  <div><div class="footer-col-title" data-i18n="footer_contact">Contact</div><ul class="footer-col-links"><li><a href="tel:+213555000000"><i class="fa-solid fa-phone" style="margin-right:6px;color:var(--gold)"></i>0555 XX XX XX</a></li><li><a href="https://wa.me/213XXXXXXXXX" target="_blank"><i class="fa-brands fa-whatsapp" style="margin-right:6px;color:#25D366"></i><span data-i18n="footer_wa">WhatsApp</span></a></li></ul></div>
+</footer>
+<div class="footer-bottom"><span class="footer-copy" data-i18n="footer_copy">© 2025 EL NAJMA</span><span class="footer-copy">Built by <strong>AbdouX</strong></span></div>
+
+<script src="js/i18n.js"></script>
+<script src="js/nav.js"></script>
+<script>
+function showCat(cat, btn) {
+  document.querySelectorAll('.menu-group').forEach(g => g.classList.remove('active'));
+  document.getElementById('group-' + cat).classList.add('active');
+  document.querySelectorAll('.menu-cat-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>

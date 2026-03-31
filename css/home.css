@@ -1,0 +1,191 @@
+/* ================================================
+   SAVORIA — Home Page Styles
+================================================ */
+
+/* ---- Hero ---- */
+.home-hero {
+  display: grid;
+  grid-template-columns: 1fr .42fr;
+  min-height: 100vh;
+  overflow: hidden;
+}
+body.ar .home-hero { direction: rtl; }
+
+.home-hero-left { position: relative; overflow: hidden; }
+.home-hero-img {
+  width: 100%; height: 100%; object-fit: cover;
+  transform: scale(1.06);
+  animation: heroZoom 10s ease-in-out infinite alternate;
+}
+@keyframes heroZoom { from{transform:scale(1.06)} to{transform:scale(1.12)} }
+
+.home-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(12,11,10,.1) 0%, rgba(12,11,10,.6) 100%);
+}
+body.ar .home-hero-overlay {
+  background: linear-gradient(to left, rgba(12,11,10,.1) 0%, rgba(12,11,10,.6) 100%);
+}
+
+.home-hero-title {
+  position: absolute; bottom: 60px; left: 50px;
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 7.5vw, 7rem);
+  font-weight: 300; line-height: .92;
+  letter-spacing: -1px; text-transform: uppercase;
+  color: var(--cream); font-style: italic;
+}
+body.ar .home-hero-title { left: auto; right: 50px; font-family: var(--font-ar); letter-spacing: 0; font-style: normal; line-height: 1.2; }
+
+.home-scroll-indicator {
+  position: absolute; bottom: 40px; right: 50px;
+  display: flex; align-items: center; gap: 12px;
+  font-size: .65rem; letter-spacing: 2.5px;
+  text-transform: uppercase; color: var(--cream-dim);
+}
+body.ar .home-scroll-indicator { right: auto; left: 50px; flex-direction: row-reverse; letter-spacing: 0; }
+
+.home-scroll-line {
+  width: 40px; height: 1px; background: var(--gold-dim);
+  position: relative; overflow: hidden;
+}
+.home-scroll-line::after {
+  content: ''; position: absolute; left: -100%; top: 0;
+  width: 100%; height: 100%; background: var(--gold);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+@keyframes scrollLine { from{left:-100%} to{left:100%} }
+
+/* Hero right tiles */
+.home-hero-right {
+  background: var(--bg2);
+  display: grid; grid-template-rows: 1fr 1fr 1fr;
+  gap: 1px; background-color: var(--border);
+}
+.home-hero-tile {
+  background: var(--bg2); position: relative; overflow: hidden;
+  cursor: none; display: flex; align-items: flex-end; padding: 24px 28px;
+  text-decoration: none;
+}
+.home-hero-tile img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; transition: transform .7s var(--ease), opacity .4s; opacity: .55;
+}
+.home-hero-tile:hover img { transform: scale(1.07); opacity: .75; }
+.home-hero-tile::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(12,11,10,.82) 0%, transparent 60%); z-index: 1;
+}
+.home-hero-tile-label {
+  position: relative; z-index: 2;
+  display: flex; align-items: center; justify-content: space-between; width: 100%;
+}
+body.ar .home-hero-tile-label { flex-direction: row-reverse; }
+.home-hero-tile-name {
+  font-size: .7rem; font-weight: 400; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--cream);
+}
+body.ar .home-hero-tile-name { letter-spacing: 0; }
+.home-hero-tile-arrow {
+  width: 30px; height: 30px;
+  border: 1px solid rgba(232,223,200,.3); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .8rem; color: var(--cream);
+  transition: background .3s, border-color .3s, transform .3s;
+}
+.home-hero-tile:hover .home-hero-tile-arrow {
+  background: var(--gold); border-color: var(--gold); color: var(--bg); transform: scale(1.1);
+}
+
+/* ---- Features ---- */
+.home-features {
+  padding: 100px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 60px 80px;
+  align-items: start;
+}
+.home-features-text { grid-column: 1; grid-row: 1; }
+.home-features-grid { grid-column: 1; grid-row: 2; }
+.home-features-visual { grid-column: 2; grid-row: 1 / 3; }
+
+body.ar .home-features { direction: rtl; }
+
+.home-features-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 300;
+  line-height: 1.1; text-transform: uppercase; letter-spacing: 2px;
+  color: var(--cream); margin-bottom: 24px;
+}
+body.ar .home-features-title { font-family: var(--font-ar); letter-spacing: 0; line-height: 1.4; }
+
+.home-features-desc {
+  font-size: .9rem; font-weight: 300; line-height: 1.9;
+  color: var(--gray); margin-bottom: 36px;
+}
+.hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.home-features-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1px; background: var(--border); border: 1px solid var(--border);
+}
+.feature-item {
+  background: var(--card); padding: 32px 28px; transition: background .3s;
+}
+.feature-item:hover { background: #1c1a16; }
+.feature-icon {
+  font-size: 1.4rem; color: var(--gold);
+  margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+}
+.feature-title {
+  font-family: var(--font-display); font-size: 1.1rem; font-weight: 400;
+  color: var(--cream); margin-bottom: 6px; letter-spacing: 1px;
+}
+body.ar .feature-title { font-family: var(--font-ar); letter-spacing: 0; }
+.feature-desc { font-size: .78rem; color: var(--gray); line-height: 1.7; font-weight: 300; }
+
+/* Visual collage */
+.home-features-visual { position: relative; height: 560px; }
+.hfv-main {
+  width: 72%; height: 80%; object-fit: cover; border-radius: 2px;
+  position: absolute; right: 0; top: 0;
+}
+.hfv-accent {
+  width: 52%; height: 55%; object-fit: cover; border-radius: 2px;
+  position: absolute; left: 0; bottom: 0;
+  border: 4px solid var(--bg);
+}
+body.ar .hfv-main { right: auto; left: 0; }
+body.ar .hfv-accent { left: auto; right: 0; }
+.hfv-badge {
+  position: absolute; right: 0; bottom: 60px;
+  background: var(--gold); color: var(--bg);
+  padding: 20px 24px; text-align: center;
+}
+body.ar .hfv-badge { right: auto; left: 0; }
+.hfv-badge-num {
+  font-family: var(--font-display); font-size: 2rem; font-weight: 700;
+  display: block; line-height: 1;
+}
+.hfv-badge-label {
+  font-size: .65rem; letter-spacing: 2px; text-transform: uppercase;
+  margin-top: 4px; display: block;
+}
+body.ar .hfv-badge-label { letter-spacing: 0; font-family: var(--font-ar); }
+
+/* ---- Responsive ---- */
+@media(max-width:1024px) {
+  .home-hero { grid-template-columns: 1fr; }
+  .home-hero-right { display: none; }
+  .home-features { grid-template-columns: 1fr; padding: 60px 40px; gap: 48px; }
+  .home-features-text,.home-features-grid,.home-features-visual { grid-column: 1; grid-row: auto; }
+  .home-features-visual { height: 360px; }
+}
+@media(max-width:768px) {
+  .home-hero-title { left: 24px; bottom: 40px; font-size: clamp(2.5rem, 10vw, 4rem); }
+  body.ar .home-hero-title { left: auto; right: 24px; }
+  .home-features { padding: 48px 24px; gap: 36px; }
+  .home-features-grid { grid-template-columns: 1fr; }
+  .home-features-visual { height: 280px; }
+}

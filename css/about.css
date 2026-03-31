@@ -1,0 +1,107 @@
+/* ================================================
+   SAVORIA — About Page Styles
+================================================ */
+.about-hero {
+  display: grid; grid-template-columns: 1fr 1fr;
+  min-height: 100vh; overflow: hidden;
+}
+body.ar .about-hero { direction: rtl; }
+.about-hero-left { position: relative; overflow: hidden; }
+.about-hero-left img { width: 100%; height: 100%; object-fit: cover; }
+.about-hero-left::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to right, transparent 40%, var(--bg) 100%);
+}
+body.ar .about-hero-left::after { background: linear-gradient(to left, transparent 40%, var(--bg) 100%); }
+.about-hero-title-overlay {
+  position: absolute; bottom: 60px; left: 50px;
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 7vw, 6rem); font-weight: 300;
+  text-transform: uppercase; letter-spacing: 2px; color: var(--cream); line-height: .9;
+}
+body.ar .about-hero-title-overlay { left: auto; right: 50px; font-family: var(--font-ar); letter-spacing: 0; }
+.about-hero-right {
+  background: var(--bg2); padding: 120px 60px 60px;
+  display: flex; flex-direction: column; gap: 36px;
+}
+.about-tagline {
+  font-family: var(--font-display); font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 300; line-height: 1.3; letter-spacing: 1px; color: var(--cream); font-style: italic;
+}
+body.ar .about-tagline { font-family: var(--font-ar); letter-spacing: 0; font-style: normal; }
+
+/* Stats */
+.about-stats {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px; background: var(--border); border: 1px solid var(--border);
+}
+.about-stat { background: var(--card); padding: 24px 16px; text-align: center; }
+.about-stat-num {
+  font-family: var(--font-display); font-size: 2rem; font-weight: 700;
+  color: var(--gold); display: flex; align-items: center; justify-content: center;
+  gap: 6px; line-height: 1; margin-bottom: 8px;
+}
+.about-stat-label { font-size: .62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gray); }
+body.ar .about-stat-label { letter-spacing: 0; }
+
+/* Cards grid */
+.about-cards {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1px; background: var(--border); border: 1px solid var(--border);
+}
+.about-card { background: var(--card); padding: 26px 24px; transition: background .3s; }
+.about-card:hover { background: #1c1a16; }
+.about-card-icon { font-size: 1.5rem; color: var(--gold); margin-bottom: 12px; display: block; }
+.about-card-title {
+  font-family: var(--font-display); font-size: 1rem; font-weight: 400;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--cream); margin-bottom: 8px;
+}
+body.ar .about-card-title { font-family: var(--font-ar); letter-spacing: 0; text-transform: none; }
+.about-card-text { font-size: .78rem; font-weight: 300; line-height: 1.7; color: var(--gray); }
+
+/* Mission */
+.about-mission {
+  padding: 80px; display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+  background: var(--bg2); border-top: 1px solid var(--border);
+}
+body.ar .about-mission { direction: rtl; }
+.about-mission-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 300;
+  text-transform: uppercase; letter-spacing: 3px; color: var(--cream);
+  margin-bottom: 28px; line-height: 1.1;
+}
+body.ar .about-mission-title { font-family: var(--font-ar); letter-spacing: 0; line-height: 1.4; }
+.about-mission-p { font-size: .88rem; font-weight: 300; line-height: 1.95; color: var(--gray); margin-bottom: 16px; }
+
+/* Collage */
+.about-collage { position: relative; height: 480px; }
+.about-collage-img1 { width: 70%; height: 65%; object-fit: cover; position: absolute; top: 0; right: 0; border-radius: 2px; }
+.about-collage-img2 { width: 58%; height: 55%; object-fit: cover; position: absolute; bottom: 0; left: 0; border: 4px solid var(--bg2); border-radius: 2px; }
+body.ar .about-collage-img1 { right: auto; left: 0; }
+body.ar .about-collage-img2 { left: auto; right: 0; }
+.about-award {
+  position: absolute; top: 50%; left: 55%; transform: translate(-50%, -50%);
+  background: var(--bg2); border: 1px solid var(--border);
+  padding: 20px; text-align: center; width: 130px;
+}
+.about-award-text { font-size: .62rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); line-height: 1.6; }
+body.ar .about-award-text { letter-spacing: 0; }
+
+@media(max-width:1024px) {
+  .about-hero { grid-template-columns: 1fr; min-height: 70vh; }
+  .about-hero-right { padding: 60px 40px 48px; gap: 28px; }
+  .about-stats { grid-template-columns: 1fr 1fr; }
+  .about-mission { grid-template-columns: 1fr; padding: 60px 40px; gap: 48px; }
+  .about-collage { height: 340px; }
+}
+@media(max-width:768px) {
+  .about-hero-title-overlay { left: 24px; bottom: 36px; }
+  body.ar .about-hero-title-overlay { left: auto; right: 24px; }
+  .about-hero-right { padding: 48px 24px 36px; }
+  .about-stats { grid-template-columns: 1fr 1fr; }
+  .about-cards { grid-template-columns: 1fr; }
+  .about-mission { padding: 48px 24px; }
+  .about-collage { height: 280px; }
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EL NAJMA — À Propos</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cursorRing" style="position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:difference;"><div class="cursor-ring-el"></div></div>
+<div id="cursorDot"  style="position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:difference;"><div class="cursor-dot-el"></div></div>
+
+<!-- OVERLAY -->
+<div class="menu-overlay" id="menuOverlay">
+  <button class="menu-overlay-close" onclick="closeNav()"><i class="fa-solid fa-xmark"></i><span data-i18n="close">Fermer</span></button>
+  <div class="overlay-lang-wrap"><div class="lang-switcher"><button class="lang-btn" data-lang="fr" onclick="setLang('fr')"><i class="fa-solid fa-globe"></i><span class="lang-label">FR</span></button><button class="lang-btn" data-lang="ar" onclick="setLang('ar')"><span class="lang-label">AR</span></button><button class="lang-btn" data-lang="en" onclick="setLang('en')"><span class="lang-label">EN</span></button></div></div>
+  <div class="menu-overlay-divider"></div>
+  <ul class="menu-overlay-links"><li><a href="index.html" data-i18n="nav_home">Accueil</a></li><li><a href="menu.html" data-i18n="nav_menu">Menu</a></li><li><a href="about.html" data-i18n="nav_about">À Propos</a></li><li><a href="reservation.html" data-i18n="nav_reservation">Réservation</a></li></ul>
+  <div class="menu-overlay-divider"></div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="mainNav">
+  <a href="index.html" class="nav-logo">ELNAJMA</a>
+  <div class="nav-center"><ul class="nav-links"><li><a href="index.html" data-i18n="nav_home">Accueil</a></li><li><a href="menu.html" data-i18n="nav_menu">Menu</a></li><li><a href="about.html" class="active" data-i18n="nav_about">À Propos</a></li><li><a href="reservation.html" data-i18n="nav_reservation">Réservation</a></li></ul></div>
+  <div class="nav-right"><div class="lang-switcher"><button class="lang-btn" data-lang="fr" onclick="setLang('fr')"><i class="fa-solid fa-globe"></i><span class="lang-label">FR</span></button><button class="lang-btn" data-lang="ar" onclick="setLang('ar')"><span class="lang-label">AR</span></button><button class="lang-btn" data-lang="en" onclick="setLang('en')"><span class="lang-label">EN</span></button></div><a href="reservation.html" class="nav-cta" data-i18n="nav_book">Réserver</a><button class="nav-burger" onclick="openNav()"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button></div>
+</nav>
+
+<!-- ==========================================
+     ABOUT HERO
+========================================== -->
+<section class="about-hero">
+  <div class="about-hero-left">
+    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&q=85" alt="About EL Najma">
+    <div class="about-hero-title-overlay" data-i18n="nav_about">À Propos</div>
+  </div>
+  <div class="about-hero-right">
+    <div class="section-label" style="margin-bottom:20px;"><span data-i18n="about_label">Notre Histoire</span></div>
+    <p class="about-tagline" data-i18n="about_tagline">"L'art de cuisiner, c'est l'art de vivre."</p>
+
+    <!-- Stats -->
+    <div class="about-stats">
+      <div class="about-stat">
+        <span class="about-stat-num"><i class="fa-solid fa-star" style="font-size:1.2rem"></i> 4.9</span>
+        <span class="about-stat-label" data-i18n="stat1">Note Clients</span>
+      </div>
+      <div class="about-stat">
+        <span class="about-stat-num">2K+</span>
+        <span class="about-stat-label" data-i18n="stat2">Clients Fidèles</span>
+      </div>
+      <div class="about-stat">
+        <span class="about-stat-num">7</span>
+        <span class="about-stat-label" data-i18n="stat3">Ans d'Exp.</span>
+      </div>
+      <div class="about-stat">
+        <span class="about-stat-num">30</span>
+        <span class="about-stat-label" data-i18n="stat4">Min Livraison</span>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="about-cards">
+      <div class="about-card">
+        <i class="fa-solid fa-leaf about-card-icon"></i>
+        <div class="about-card-title" data-i18n="at1_title">Produits Frais</div>
+        <div class="about-card-text"  data-i18n="at1_text">Approvisionnement quotidien auprès de producteurs locaux algériens.</div>
+      </div>
+      <div class="about-card">
+        <i class="fa-solid fa-hat-chef about-card-icon"></i>
+        <div class="about-card-title" data-i18n="at2_title">Chefs Experts</div>
+        <div class="about-card-text"  data-i18n="at2_text">Une équipe de chefs avec plus de 10 ans d'expérience culinaire.</div>
+      </div>
+      <div class="about-card">
+        <i class="fa-solid fa-trophy about-card-icon"></i>
+        <div class="about-card-title" data-i18n="at3_title">Prix & Awards</div>
+        <div class="about-card-text"  data-i18n="at3_text">Meilleur restaurant fast-food d'Alger 2023 selon le guide local.</div>
+      </div>
+      <div class="about-card">
+        <i class="fa-solid fa-recycle about-card-icon"></i>
+        <div class="about-card-title" data-i18n="at4_title">Éco-Responsable</div>
+        <div class="about-card-text"  data-i18n="at4_text">Emballages biodégradables et démarche zéro gaspillage.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     MISSION SECTION
+========================================== -->
+<section class="about-mission">
+  <div class="about-mission-text reveal">
+    <div class="section-label" style="margin-bottom:16px;"><span data-i18n="about_mission_label">Notre Mission</span></div>
+    <h2 class="about-mission-title" data-i18n-html="about_mission_title">Une Cuisine<br>Authentique,<br>Une Passion Réelle</h2>
+    <p class="about-mission-p" data-i18n="about_mission_p1">Fondée en 2018 au cœur d'Alger, EL NAJMA est née d'une conviction simple.</p>
+    <p class="about-mission-p" data-i18n="about_mission_p2">Nos chefs s'approvisionnent chaque matin auprès de producteurs locaux.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;">
+      <a href="menu.html" class="btn-gold"><i class="fa-solid fa-utensils"></i><span data-i18n="feat_btn_menu">Voir le Menu</span></a>
+      <a href="reservation.html" class="btn-ghost"><i class="fa-regular fa-calendar-check"></i><span data-i18n="feat_btn_book">Réserver</span></a>
+    </div>
+  </div>
+
+  <div class="about-collage reveal reveal-delay-1">
+    <img class="about-collage-img1" src="https://images.unsplash.com/photo-1567521464027-f127ff144326?w=700&q=80" alt="">
+    <img class="about-collage-img2" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="">
+    <div class="about-award">
+      <i class="fa-solid fa-trophy" style="font-size:1.6rem;color:var(--gold);display:block;margin-bottom:8px;"></i>
+      <div class="about-award-text" data-i18n-html="award_text">Best Restaurant<br>Alger 2023</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div><div class="footer-brand-name">EL NAJMA</div><p class="footer-brand-desc" data-i18n="footer_desc">L'art culinaire au service de votre plaisir.</p><div class="footer-social"><a href="#" class="footer-social-link"><i class="fa-brands fa-instagram"></i></a><a href="#" class="footer-social-link"><i class="fa-brands fa-facebook-f"></i></a><a href="#" class="footer-social-link"><i class="fa-brands fa-tiktok"></i></a></div></div>
+  <div><div class="footer-col-title" data-i18n="footer_nav">Navigation</div><ul class="footer-col-links"><li><a href="index.html" data-i18n="nav_home">Accueil</a></li><li><a href="menu.html" data-i18n="nav_menu">Menu</a></li><li><a href="about.html" data-i18n="nav_about">À Propos</a></li><li><a href="reservation.html" data-i18n="nav_reservation">Réservation</a></li></ul></div>
+  <div><div class="footer-col-title" data-i18n="footer_hours_title">Horaires</div><ul class="footer-col-links"><li><a href="#"><i class="fa-regular fa-clock" style="margin-right:6px;color:var(--gold)"></i><span data-i18n="footer_h1"></span></a></li><li><a href="#"><i class="fa-regular fa-clock" style="margin-right:6px;color:var(--gold)"></i><span data-i18n="footer_h2"></span></a></li></ul></div>
+  <div><div class="footer-col-title" data-i18n="footer_contact">Contact</div><ul class="footer-col-links"><li><a href="tel:+213555000000"><i class="fa-solid fa-phone" style="margin-right:6px;color:var(--gold)"></i>0555 XX XX XX</a></li><li><a href="https://wa.me/213XXXXXXXXX" target="_blank"><i class="fa-brands fa-whatsapp" style="margin-right:6px;color:#25D366"></i><span data-i18n="footer_wa">WhatsApp</span></a></li></ul></div>
+</footer>
+<div class="footer-bottom"><span class="footer-copy" data-i18n="footer_copy">© 2025 EL NAJMA</span><span class="footer-copy">Built by <strong>AbdouX</strong></span></div>
+
+<script src="js/i18n.js"></script>
+<script src="js/nav.js"></script>
+</body>
+</html>
