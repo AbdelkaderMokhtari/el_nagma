@@ -336,7 +336,7 @@ const T = {
 /* ================================================
    I18N ENGINE
 ================================================ */
-let currentLang = localStorage.getItem('savoria_lang') || 'fr';
+let currentLang = localStorage.getItem('savoria_lang') || 'ar';
 
 function applyLang(lang) {
   currentLang = lang;
@@ -345,7 +345,7 @@ function applyLang(lang) {
 
   // html attributes
   document.documentElement.lang = lang === 'ar' ? 'ar' : lang === 'en' ? 'en' : 'fr';
-  document.documentElement.dir  = lang === 'ar' ? 'rtl' : 'ltr';
+  document.documentElement.dir  = lang === 'ar' ? 'rtl' : 'rtl';
   document.body.classList.toggle('ar', lang === 'ar');
 
   // text nodes
